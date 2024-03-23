@@ -2,7 +2,7 @@ import React from "react";
 
 const WeatherBt = ({ cities, setCity, getWeatherByCity }) => {
   return (
-    <div>
+    <div className="bts">
       <button
         onClick={() => {
           setCity(null);

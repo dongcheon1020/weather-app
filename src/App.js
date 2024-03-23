@@ -55,6 +55,7 @@ function App() {
   // 날씨 백그라운드
   const weatherClassification = (weather) => {
     let code = weather.slice(0, -1);
+
     switch (code) {
       case "01":
         return "sun";
@@ -83,7 +84,6 @@ function App() {
   };
 
   // lifeCycle
-  const videoRef = useState(null);
 
   useEffect(() => {
     if (city === null) {
@@ -91,7 +91,6 @@ function App() {
     } else {
       getWeatherByCity();
     }
-    console.log("weatherBg", weatherBg);
   }, [city]);
 
   // DOM
@@ -103,14 +102,10 @@ function App() {
           muted
           autoPlay
           loop
+          playsInline
         />
       ) : (
-        <video
-          src={process.env.PUBLIC_URL + `/video/sun.mp4`}
-          muted
-          autoPlay
-          loop
-        />
+        ""
       )}
 
       <div className="wrapper">
