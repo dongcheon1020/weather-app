@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import WeatherBox from "./component/WeatherBox";
 import WeatherBt from "./component/WeatherBt";
 import Loading from "./component/Loading";
+import Weathers from "./component/Weathers";
 
 function App() {
   // 변수
@@ -119,6 +120,7 @@ function App() {
         ) : (
           <>{APIerr}</>
         )}
+        <Weathers weather={weather} />
       </div>
     </div>
   );

@@ -14,6 +14,8 @@ body {
 .loading {
   animation: loading 1s infinite linear;
   width: 60px;
+  position: relative;
+  z-index: 999;
 }
 @keyframes loading {
   0% {
@@ -61,12 +63,15 @@ video {
   font-weight: bold;
 }
 .bts {
+  margin-top: 30px;
+  width: 980px;
   background-color: #1d1d1f26;
-  padding: 300px 40px;
+  padding: 40px;
   border-radius: 12px;
   -webkit-backdrop-filter: blur(100px) saturate(1.8);
   backdrop-filter: blur(20px) saturate(2);
   display: flex;
+  box-sizing: border-box;
 }
 .bts button {
   font-size: 18px;
@@ -83,4 +88,42 @@ video {
 }
 .bts button:hover {
   text-decoration: underline;
+}
+.weathers {
+  gap: 15px;
+  margin-top: 15px;
+  width: 980px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.boxs {
+  background-color: #1d1d1f26;
+  padding: 12px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(100px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(2);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+.box1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+.box2 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+.box3 {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+.header {
+  border-bottom: 1px solid #ffffff54;
+  margin-bottom: 20px;
+  line-height: 40px;
+  font-size: 14px;
 }
