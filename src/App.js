@@ -11,6 +11,7 @@ function App() {
   const [city, setCity] = useState(null);
   const [loading, setLoading] = useState(false);
   const [APIerr, setAPIerr] = useState(null);
+  const [weatherBg, setWeatherBg] = useState(null);
 
   // 함수
   // 위도 경도 불러오기
@@ -29,6 +30,7 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeather(data);
+      setWeatherBg(weatherClassification(data.weather[0].icon));
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -43,25 +45,74 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeather(data);
+      setWeatherBg(weatherClassification(data.weather[0].icon));
       setLoading(false);
     } catch (error) {
       setLoading(false);
       setAPIerr(error.message);
     }
   };
+  // 날씨 백그라운드
+  const weatherClassification = (weather) => {
+    let code = weather.slice(0, -1);
+    switch (code) {
+      case "01":
+        return "sun";
+        break;
+      case "02":
+      case "03":
+      case "04":
+        return "clouds";
+        break;
+      case "05":
+      case "10":
+      case "11":
+        return "rain";
+        break;
+      case "13":
+        return "snow";
+        break;
+      case "50":
+        return "mist";
+        break;
+
+      default:
+        return "아무값없음";
+        break;
+    }
+  };
 
   // lifeCycle
+  const videoRef = useState(null);
+
   useEffect(() => {
     if (city === null) {
       getCurrentLocation();
     } else {
       getWeatherByCity();
     }
+    console.log("weatherBg", weatherBg);
   }, [city]);
 
   // DOM
   return (
     <div>
+      {weatherBg ? (
+        <video
+          src={process.env.PUBLIC_URL + `/video/${weatherBg}.mp4`}
+          muted
+          autoPlay
+          loop
+        />
+      ) : (
+        <video
+          src={process.env.PUBLIC_URL + `/video/sun.mp4`}
+          muted
+          autoPlay
+          loop
+        />
+      )}
+
       <div className="wrapper">
         {loading ? (
           <Loading />

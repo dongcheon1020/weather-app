@@ -1,11 +1,12 @@
 import React from "react";
 
 const WeatherBox = ({ weather }) => {
-  console.log("box", weather);
+  // console.log("box", weather);
   return (
     <div>
       <h4>{weather?.name}</h4>
       {weather ? <div>{weather?.main.temp + " °C"}</div> : ""}
+      <button>섭시</button>
       <p>{weather?.weather[0].description}</p>
       {weather ? (
         <img
