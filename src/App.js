@@ -105,7 +105,7 @@ function App() {
           playsInline
         />
       ) : (
-        ""
+        <Loading />
       )}
 
       <div className="wrapper">

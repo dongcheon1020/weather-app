@@ -8,7 +8,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 .loading {
@@ -61,16 +61,17 @@ video {
   font-weight: bold;
 }
 .bts {
-  background-color: #ffffff00;
-  padding: 40px;
-  border-radius: 18px;
-  -webkit-backdrop-filter: blur(30px) saturate(1.8);
+  background-color: #1d1d1f26;
+  padding: 300px 40px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(100px) saturate(1.8);
   backdrop-filter: blur(20px) saturate(2);
   display: flex;
 }
 .bts button {
   font-size: 18px;
   background: none;
+  font-weight: bold;
   border: none;
   color: #fff;
   padding: 0 30px;
