@@ -1,6 +1,13 @@
 import React from "react";
 
 const Weathers = ({ weather }) => {
+  const sunriseDate = new Date(weather?.sys.sunrise * 1000);
+  const sunsetDate = new Date(weather?.sys.sunset * 1000);
+  const sunriseStr = sunriseDate.toString().slice(15, -22);
+  const sunsetStr = sunsetDate.toString().slice(15, -22);
+  console.log("일출111", sunriseStr);
+  console.log("일몰111", sunsetStr);
+
   return (
     <div className="weathers">
       {/* 온도 */}
@@ -25,8 +32,8 @@ const Weathers = ({ weather }) => {
       {/* 일출몰 */}
       <div className="box3 boxs">
         <header className="header">일출 및 일몰</header>
-        <div> 일출 시간, 유닉스, UTC{weather?.sys.sunrise}</div>
-        <div>일몰 시간, 유닉스, UTC{weather?.sys.sunset}</div>
+        <div> 일출 시간{sunriseStr}</div>
+        <div>일몰 시간{sunsetStr}</div>
       </div>
     </div>
   );
