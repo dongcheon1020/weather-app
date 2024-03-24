@@ -18,7 +18,7 @@ const WeatherBox = ({ weather }) => {
         )}
       </div>
       <div className="tems">
-        <p>{"최고" + weather?.main.temp_max + "최저"}</p>
+        <p>{"최고" + weather?.main.temp_max}</p>
         <p>{"최저" + weather?.main.temp_min}</p>
       </div>
     </div>
